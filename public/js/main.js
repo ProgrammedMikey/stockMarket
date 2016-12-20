@@ -105,6 +105,6 @@ Markit.InteractiveChartApi.prototype.render = function(data) {
 
 //var stockInput = document.getElementById("symbolsearch").value || 'AAPL';
 
-//new Markit.InteractiveChartApi ('AAPL', 3650);
+new Markit.InteractiveChartApi ('AAPL', 3650);
 
 

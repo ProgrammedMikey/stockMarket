@@ -30,15 +30,9 @@ $(function() {
                     .listen('ChatMessageWasReceived', ui.item.value);
                     var symbol = ui.item.value || 'AAPL';
                     new Markit.InteractiveChartApi(symbol, 3650);
-
             }
         });
 });
 
-//var nameElement = $("#symbolsearch");
-//$("#addStock").on("click", function() {
-//    var symbol = nameElement.val();
-//    new Markit.InteractiveChartApi(symbol, 3650);
-//});
 
 

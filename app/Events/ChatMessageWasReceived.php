@@ -14,12 +14,10 @@ class ChatMessageWasReceived implements ShouldBroadcast
     use InteractsWithSockets, SerializesModels;
 
     public $chatMessage;
-    public $user;
 
-    public function __construct($chatMessage, $user)
+    public function __construct($chatMessage)
     {
         $this->chatMessage = $chatMessage;
-        $this->user = $user;
     }
 
     public function broadcastOn()
