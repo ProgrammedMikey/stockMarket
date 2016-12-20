@@ -54,8 +54,17 @@ class HomeController extends Controller
 //        $myTest = "AAPL";
 //        $url = 'http://dev.markitondemand.com/api/v2/Lookup/json?input=' . $myTest;
 //        dd($url);
+    }
+    public function getLookUp(Request $request)
+    {
+        $symbol = $request->input('symbolsearch', "GOOG");
+        $url = 'http://dev.markitondemand.com/api/v2/Lookup/json?input=' . $symbol;
 
+        $guzzle = new Client();
 
+        $response = json_decode($guzzle->request('GET', $url)->getbody());
+        return ['response' => $response];
+//        dd($response);
     }
 
 }

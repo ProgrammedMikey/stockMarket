@@ -10,11 +10,10 @@ $(function() {
                         $("span.label-info").empty().hide();
                     },
                     type: 'GET',
-                    jsonp: "callback",
-                    dataType: "jsonp",
-                    url: 'http://dev.markitondemand.com/api/v2/Lookup/jsonp?input=' + request.term,
+                    url: '/getLookUp?symbolsearch=' + request.term,
                     success: function(data) {
-                        response($.map(data, function(item) {
+                        console.log(data);
+                        response($.map(data.response, function(item) {
                             return {
                                 label: item.Name + " (" + item.Symbol + ")",
                                 value: item.Symbol
@@ -24,6 +23,22 @@ $(function() {
                     }
                 });
             },
-            minLength: 1
+            minLength: 1,
+            select: function(event, ui) {
+                //socket.emit('chat message', ui.item.value);
+                Echo.channel('chat-room.1')
+                    .listen('ChatMessageWasReceived', ui.item.value);
+                    var symbol = ui.item.value || 'AAPL';
+                    new Markit.InteractiveChartApi(symbol, 3650);
+
+            }
         });
 });
+
+//var nameElement = $("#symbolsearch");
+//$("#addStock").on("click", function() {
+//    var symbol = nameElement.val();
+//    new Markit.InteractiveChartApi(symbol, 3650);
+//});
+
+

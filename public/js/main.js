@@ -22,7 +22,7 @@ Markit.InteractiveChartApi.prototype.PlotChart = function(){
                 return;
             }
             this.render(json.response);
-            console.log(json);
+            //console.log(json);
             $('#symbolsearch').val('');
         }
     });
@@ -103,8 +103,8 @@ Markit.InteractiveChartApi.prototype.render = function(data) {
     });
 };
 
-var stockInput = document.getElementById("symbolsearch").value || 'AAPL';
+//var stockInput = document.getElementById("symbolsearch").value || 'AAPL';
 
-new Markit.InteractiveChartApi (stockInput, 3650);
+//new Markit.InteractiveChartApi ('AAPL', 3650);
 
 

@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return view('home');
 });
 
 Auth::routes();
@@ -26,4 +26,10 @@ Route::group(['middleware' => ['web']], function() {
         'uses' => 'HomeController@getStockData',
         'as' => 'getStockData'
     ]);
+
+    Route::get('/getLookUp', [
+        'uses' => 'HomeController@getLookUp',
+        'as' => 'getLookUp'
+    ]);
+
 });
